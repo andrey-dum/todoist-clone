@@ -1,11 +1,15 @@
 
 
-import './App.css';
+import './App.scss';
+import Content from './components/Layout/Content';
+import Header from './components/Layout/Header';
 
-function App() {
+export const App = () => {
   return (
     <div className="app">
-      <h1>Hello</h1>
+      <Header />
+
+      <Content />
     </div>
   );
 }
