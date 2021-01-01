@@ -12,8 +12,14 @@ export default function Header() {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li>+</li>
-                        <li>
+                        <li 
+                            className="settings__add"
+                            data-testid="quick-add-task-action"
+                            >+</li>
+                        <li 
+                            data-testid="dark-mode-action"
+                            className="settings__darkmode"
+                            >
                             <VscColorMode />
                         </li>
                     </ul>
