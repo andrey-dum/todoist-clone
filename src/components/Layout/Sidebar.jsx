@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {
     FaChevronDown,
@@ -6,18 +6,39 @@ import {
     FaRegCalendarAlt,
     FaRegCalendar,
   } from 'react-icons/fa';
+import { useSelectedProjectValue } from '../../context';
+import { Projects } from '../Projects/Projects';
 
   
 
 export default function Sidebar() {
+    const { setSelectedProject } = useSelectedProjectValue();
+    const [active, setActive] = useState('inbox');
+    const [showProjects, setShowProjects] = useState(true);
+
     return (
         <div className="sidebar" data-testid="sidebar">
             <ul className="sidebar__generic">
                 <li
                     data-testid="inbox"
-                    className={'inbox'}
+                    className={active === 'inbox' ? 'active' : undefined}
                 >
-                    <div>
+                    <div
+                        data-testid="inbox-action"
+                        aria-label="Show inbox tasks"
+                        tabIndex={0}
+                        role="button"
+                        onClick={() => {
+                            setActive('inbox');
+                            setSelectedProject('INBOX');
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                setActive('inbox');
+                                setSelectedProject('INBOX');
+                            }
+                        }}
+                    >
                         <span>
                             <FaInbox />
                         </span>
@@ -56,9 +77,9 @@ export default function Sidebar() {
                 <h2>Projects</h2>
             </div>
 
-            <ul className="sidebar__projects">sidebar__projects</ul>
+            <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
 
-            Add Projects Comp! 
+            {/* <Projects /> */}
         
         </div>
     )

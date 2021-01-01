@@ -56,7 +56,7 @@ export const useProjects = () => {
     useEffect(() => {
       db
         .collection('projects')
-        .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw')
+        .where('userId', '==', '777')
         .orderBy('projectId')
         .get()
         .then(snapshot => {
