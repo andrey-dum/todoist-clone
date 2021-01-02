@@ -7,6 +7,7 @@ import {
     FaRegCalendar,
   } from 'react-icons/fa';
 import { useSelectedProjectValue } from '../../context';
+import AddProject from '../Projects/AddProject';
 import { Projects } from '../Projects/Projects';
 
   
@@ -68,10 +69,19 @@ export default function Sidebar() {
                 </li>
             </ul>
 
-            <div className="sidebar__middle">
+            <div
+                className="sidebar__middle"
+                aria-label="Show/hide projects"
+                onClick={() => setShowProjects(!showProjects)}
+                onKeyDown={(e) => {
+                if (e.key === 'Enter') setShowProjects(!showProjects);
+                }}
+                role="button"
+                tabIndex={0}
+            >
                 <span>
                 <FaChevronDown
-                    className={''}
+                    className={!showProjects ? 'hidden-projects' : undefined}
                 />
                 </span>
                 <h2>Projects</h2>
@@ -79,7 +89,7 @@ export default function Sidebar() {
 
             <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
 
-            {/* <Projects /> */}
+            {showProjects && <AddProject />}
         
         </div>
     )
