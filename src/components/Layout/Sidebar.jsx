@@ -7,7 +7,7 @@ import {
     FaRegCalendar,
   } from 'react-icons/fa';
 import { useSelectedProjectValue } from '../../context';
-import AddProject from '../Projects/AddProject';
+import {AddProject} from '../Projects/AddProject';
 import { Projects } from '../Projects/Projects';
 
   
