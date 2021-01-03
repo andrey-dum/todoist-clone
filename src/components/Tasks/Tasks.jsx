@@ -5,6 +5,7 @@ import Checkbox from './Checkbox';
 import { collatedTasks } from '../../constants';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../../helpers';
 import { useSelectedProjectValue, useProjectsValue } from '../../context';
+import { AddTask } from './AddTask';
 
 
 
@@ -45,7 +46,7 @@ export default function Tasks() {
             ))}
         </ul>
 
-        {/* <AddTask /> */}
+        <AddTask />
         </div>
     );
 };

@@ -14,7 +14,7 @@ export default function Checkbox({id}) {
         <div 
             className="checkbox-holder" 
             data-testid="checkbox-action"
-            onClick={() => archiveTask()}
+            onClick={archiveTask}
             >
                 <span className="checkbox"></span>
             
