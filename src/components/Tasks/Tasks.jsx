@@ -26,7 +26,7 @@ export default function Tasks() {
         selectedProject &&
         !collatedTasksExist(selectedProject)
     ) {
-        projectName = getTitle(projects, selectedProject).name;
+        projectName = getTitle(projects, selectedProject)?.name;
     }
 
     useEffect(() => {
